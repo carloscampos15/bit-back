@@ -42,13 +42,13 @@ public class ClientController {
     }
 
     @PostMapping("")
-    public ResponseEntity<Boolean> saveClient(@RequestBody ClientDto clientId) {
-        clientService.saveClient(clientId);
+    public ResponseEntity<Boolean> saveClient(@RequestBody ClientDto clientDto) {
+        clientService.saveClient(clientDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ClientRsDto> updateClientr(@PathVariable("id") Long clientId, @RequestBody ClientDto clientDto) {
+    public ResponseEntity<ClientRsDto> updateClient(@PathVariable("id") Long clientId, @RequestBody ClientDto clientDto) {
         Optional<ClientRsDto> client = clientService.updateClient(clientId, clientDto);
 
         return client
