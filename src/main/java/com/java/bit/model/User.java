@@ -17,6 +17,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -44,6 +45,9 @@ public class User extends BaseModel implements Serializable {
 
     @Column(nullable = false)
     private String lastname;
+
+    @Column(nullable = false)
+    private LocalDateTime lastLogin;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
